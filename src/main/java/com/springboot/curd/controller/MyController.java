@@ -49,9 +49,6 @@ public class MyController {
 	@PostMapping("/students")
 	public ResponseEntity<Student> addStudent(@RequestBody Student student) {
 		try {
-			if(studentService.alreadyExist(student.getStudent_no())) {
-				return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-			}
 			return new ResponseEntity<>(studentService.addStudent(student), HttpStatus.CREATED);				
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
