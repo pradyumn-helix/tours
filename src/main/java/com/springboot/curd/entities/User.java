@@ -33,6 +33,10 @@ public class User {
             cascade = CascadeType.ALL)
     private Set<Booking> booking;
 
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Cards> card;
+
     public enum Role {
         User,
         Admin
@@ -94,5 +98,21 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public Set<Booking> getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Set<Booking> booking) {
+        this.booking = booking;
+    }
+
+    public Set<Cards> getCard() {
+        return card;
+    }
+
+    public void setCard(Set<Cards> card) {
+        this.card = card;
     }
 }

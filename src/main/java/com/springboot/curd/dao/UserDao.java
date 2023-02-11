@@ -6,10 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface UserDao extends JpaRepository<User, Long> {
+public interface UserDao extends JpaRepository<User, UUID> {
     Optional<User> findById(UUID id);
 
     void deleteById(UUID id);
 
     boolean existsByEmail(String email);
+
+    User findByEmail(String email);
 }
