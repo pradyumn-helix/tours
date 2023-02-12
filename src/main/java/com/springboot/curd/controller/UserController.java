@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -47,6 +47,7 @@ public class UserController {
         }
     }
 
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/users")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         try {
